@@ -1,0 +1,141 @@
+.resultHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 27px;
+}
+
+.resultPageLogo {
+  width: 149px;
+  height: 63px;
+  margin-right: 35px;
+}
+
+.resultPageInput {
+  width: 509px;
+  height: 46px;
+  left: 221px;
+  top: 35px;
+  background: #ffffff;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 8px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  padding-left: 20px;
+  color: #484848;
+  margin-right: 24px;
+}
+
+.resultSearchButton {
+  width: 138px;
+  height: 46px;
+  left: 754px;
+  top: 32px;
+  background: #4f75c2;
+  border-radius: 8px;
+  border: none;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  cursor: pointer;
+  color: #ffffff;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.sorting {
+  display: flex;
+  cursor: pointer;
+  justify-content: flex-end;
+  padding-right: 100px;
+}
+.orderButton {
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  color: #484848;
+}
+.sortOptions {
+  width: 156px;
+  height: 127px;
+  background: #ffffff;
+  border: 1px solid #484848;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+.sortOptions > button {
+  border: none;
+  background-color: white;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  /* line-height: 16px; */
+  align-items: center;
+  color: #000000;
+  margin-left: 6px;
+  margin-bottom: 1px;
+  padding: 6px 6px 6px 6px;
+}
+
+.sortOptions > button:hover {
+  background: #c4c4c4;
+  border-radius: 4px;
+  color: white;
+}
+.resultPageList {
+  width: 83%;
+  margin-top: 80px;
+}
+.countryCity {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  color: #484848;
+}
+.nameDate {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 14px;
+  color: #686868;
+}
+.email {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  color: #484848;
+  margin-left: auto;
+  padding-right: 20%;
+}
+.listItem {
+  border-bottom: 1px solid #585858;
+  padding-bottom: 3px;
+  width: 644px;
+}
+.liHover {
+  padding-bottom: 9px;
+  padding-top: 10px;
+  padding-left: 11px;
+  margin-bottom: 21px;
+  width: 661px;
+}
+.liHover:hover {
+  background: #c4c4c4;
+  border-radius: 4px;
+}

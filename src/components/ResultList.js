@@ -5,7 +5,7 @@ function ResultList({ it, i }) {
     <li className='listedItem'>
       <li style={{ display: 'flex' }}>
         <li className='country-city'>{`${it[4]} - ${it[5]}`}</li>
-        <li className='email' style={{ marginLeft: 'auto' }}>
+        <li className='e-mail' style={{ marginLeft: 'auto' }}>
           {`Email:${it[2]}`}
         </li>
       </li>

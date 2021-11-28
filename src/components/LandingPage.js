@@ -14,8 +14,6 @@ function LandingPage() {
     dispatch(changeSearch(search));
   }, [dispatch, search]);
 
-  const items = useSelector((state) => state.results.items);
-
   const searchClicked = (e) => {
     e.preventDefault();
     if (search !== '') {
@@ -24,6 +22,7 @@ function LandingPage() {
       return;
     }
   };
+  const items = useSelector((state) => state.results.items);
   return (
     <div className='container'>
       <img src={tesodev} alt='' className='mainPageLogo' />

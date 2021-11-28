@@ -15,10 +15,16 @@ export const resultSlice = createSlice({
   initialState: {
     items: [],
     search: '',
+    sort: '',
   },
   reducers: {
     changeSearch: (state, action) => {
       state.search = action.payload;
+      console.log(state.search);
+    },
+    nameAscending: (state, action) => {
+      const ascending = state.items[0].sort();
+      state.items = ascending;
     },
   },
   extraReducers: {
