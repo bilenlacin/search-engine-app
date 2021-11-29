@@ -1,3 +1,6 @@
+.resultContainer {
+  height: 100vh;
+}
 .resultHeader {
   display: flex;
   justify-content: center;

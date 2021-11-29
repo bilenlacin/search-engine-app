@@ -1,0 +1,106 @@
+.paging {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.previous {
+  width: 85.71px;
+  height: 25px;
+  background: #ffffff;
+  border: 1px solid #484848;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  color: #484848;
+  margin-right: 11px;
+}
+.previous:hover {
+  background: #204080;
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 16px;
+  color: #ffffff;
+}
+
+.pageNumber {
+  width: 24px;
+  height: 24px;
+  left: 449px;
+  top: 764px;
+  background: #ffffff;
+  border: 1px solid #484848;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  color: #484848;
+  margin-right: 11px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+.pageNumber:hover {
+  background: #9badd1;
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 16px;
+  color: #ffffff;
+}
+.pageNumber:focus {
+  background: #204080;
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 16px;
+  color: #ffffff;
+}
+.dots {
+  width: 37px;
+  height: 25px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  color: #000000;
+  border: none;
+  background-color: white;
+  line-height: 2px;
+  padding: 0;
+  margin-right: 11px;
+}
+.next {
+  width: 85.71px;
+  height: 25px;
+  background: #ffffff;
+  border: 1px solid #484848;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  color: #484848;
+}
+.next:hover {
+  background: #204080;
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 16px;
+  color: #ffffff;
+}

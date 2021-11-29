@@ -9,22 +9,92 @@ export const getResultsAsync = createAsyncThunk(
     return await res;
   }
 );
+export const getDataAsync = createAsyncThunk(
+  'results/getDataAsync',
+  async () => {
+    const res = await fetch('http://localhost:3000/mockData.json')
+      .then((response) => response.json())
+      .then((res) => res.data);
+    return await res;
+  }
+);
 
 export const resultSlice = createSlice({
   name: 'results',
   initialState: {
     items: [],
     search: '',
-    sort: '',
+    sorting: '',
   },
   reducers: {
     changeSearch: (state, action) => {
       state.search = action.payload;
-      console.log(state.search);
     },
-    nameAscending: (state, action) => {
-      const ascending = state.items[0].sort();
-      state.items = ascending;
+    sortData: (state, action) => {
+      state.sorting = action.payload;
+      const currentState = JSON.parse(JSON.stringify(state.items));
+
+      if (state.sorting === 'nameAscending') {
+        let filtered = currentState
+          .filter((item) => {
+            return item[0];
+          })
+          .sort(function (a, b) {
+            var nameA = a[0].toUpperCase();
+            var nameB = b[0].toUpperCase();
+            if (nameA < nameB) {
+              return -1;
+            }
+            if (nameA > nameB) {
+              return 1;
+            }
+
+            return 0;
+          });
+        state.items = filtered;
+      } else if (state.sorting === 'nameDescending') {
+        let filtered = currentState
+          .filter((item) => {
+            return item[0];
+          })
+          .sort(function (a, b) {
+            var nameA = a[0].toUpperCase();
+            var nameB = b[0].toUpperCase();
+            if (nameB < nameA) {
+              return -1;
+            }
+            if (nameB > nameA) {
+              return 1;
+            }
+
+            return 0;
+          });
+        state.items = filtered;
+      } else if (state.sorting === 'yearAscending') {
+        let filtered = currentState
+          .filter((item) => {
+            return item[3];
+          })
+          .slice()
+          .sort(
+            (a, b) =>
+              Date.parse(new Date(a[3].split('/').reverse().join('-'))) -
+              Date.parse(new Date(b[3].split('/').reverse().join('-')))
+          );
+        state.items = filtered;
+      } else if (state.sorting === 'yearDescending') {
+        let filtered = currentState
+          .filter((item) => {
+            return item[3];
+          })
+          .slice()
+          .sort(
+            (a, b) =>
+              Date.parse(new Date(b[3].split('/').reverse().join('-'))) -
+              Date.parse(new Date(a[3].split('/').reverse().join('-')))
+          );
+        state.items = filtered;
+      }
     },
   },
   extraReducers: {
@@ -36,8 +106,11 @@ export const resultSlice = createSlice({
         return false;
       });
     },
+    [getDataAsync.fulfilled]: (state, action) => {
+      state.items = action.payload;
+    },
   },
 });
 
-export const { changeSearch } = resultSlice.actions;
+export const { changeSearch, sortData } = resultSlice.actions;
 export default resultSlice.reducer;
