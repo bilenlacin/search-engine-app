@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice, nanoid } from '@reduxjs/toolkit';
 
 export const getResultsAsync = createAsyncThunk(
   'results/getResultsAsync',
@@ -101,13 +101,18 @@ export const resultSlice = createSlice({
     [getResultsAsync.fulfilled]: (state, action) => {
       state.items = action.payload.filter((item) => {
         if (item[0].toLowerCase().includes(state.search.toLowerCase())) {
+          item.push(nanoid());
           return item;
         }
         return false;
       });
+      state.search = '';
     },
     [getDataAsync.fulfilled]: (state, action) => {
-      state.items = action.payload;
+      state.items = action.payload.map((item) => {
+        item.push(nanoid());
+        return item;
+      });
     },
   },
 });

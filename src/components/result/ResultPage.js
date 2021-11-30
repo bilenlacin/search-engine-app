@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import tesodev from '../images/tesodevsvg.svg';
-import sortIcon from '../images/sortIcon.svg';
+import tesodev from '../../images/tesodevsvg.svg';
+import sortIcon from '../../images/sortIcon.svg';
 import './ResultPage.css';
 import ResultPageList from './ResultPageList';
 import {
@@ -8,9 +8,9 @@ import {
   getDataAsync,
   getResultsAsync,
   sortData,
-} from '../redux/resultSlice';
+} from '../../redux/resultSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import Pagination from './Pagination';
+import Pagination from '../pagination/Pagination';
 
 function ResultPage() {
   const [search, setSearch] = useState('');
@@ -25,24 +25,27 @@ function ResultPage() {
     dispatch(getDataAsync());
   }, [dispatch]);
 
-  const searchClicked = (e) => {
-    e.preventDefault();
-    if (search !== '') {
-      dispatch(getResultsAsync());
-    } else {
-      return;
-    }
-  };
   const items = useSelector((state) => state.results.items);
+  const searched = useSelector((state) => state.results.search);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [postPerPage] = useState(5);
+  const [postPerPage] = useState(6);
   const indexOfLastPost = currentPage * postPerPage;
   const indexOfFirstPost = indexOfLastPost - postPerPage;
   const currentPost = items.slice(indexOfFirstPost, indexOfLastPost);
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
+  };
+
+  const searchClicked = (e) => {
+    e.preventDefault();
+    if (search !== '') {
+      dispatch(getResultsAsync());
+      setCurrentPage(1);
+    } else {
+      return;
+    }
   };
   const changePage = (text, pageNumbersLength) => {
     if (text === 'next') {
@@ -66,12 +69,16 @@ function ResultPage() {
   return (
     <div className='resultContainer'>
       <div className='resultHeader'>
-        <img className='resultPageLogo' src={tesodev} alt='' />
+        <a href='/'>
+          <img className='resultPageLogo' src={tesodev} alt='' />
+        </a>
+
         <form action=''>
           <input
             className='resultPageInput'
             type='text'
             onChange={(e) => setSearch(e.target.value)}
+            value={searched}
           />
         </form>
         <button
@@ -88,13 +95,17 @@ function ResultPage() {
             Order By
           </button>
         </div>
-        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+        <div
+          style={{ display: 'flex', justifyContent: 'flex-end', height: 510 }}
+        >
           <div style={{ width: 644, marginRight: '8.7%' }}>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+            <div style={{ listStyle: 'none', padding: 0, margin: 0 }}>
               {currentPost.map((it) => (
-                <ResultPageList it={it} />
+                <React.Fragment key={it[6]}>
+                  <ResultPageList it={it} />
+                </React.Fragment>
               ))}
-            </ul>
+            </div>
           </div>
           {clicked && (
             <div
@@ -105,16 +116,36 @@ function ResultPage() {
               }}
             >
               <div className='sortOptions'>
-                <button onClick={() => dispatch(sortData('nameAscending'))}>
+                <button
+                  onClick={() => {
+                    setClicked(!clicked);
+                    dispatch(sortData('nameAscending'));
+                  }}
+                >
                   Name ascending
                 </button>
-                <button onClick={() => dispatch(sortData('nameDescending'))}>
+                <button
+                  onClick={() => {
+                    setClicked(!clicked);
+                    dispatch(sortData('nameDescending'));
+                  }}
+                >
                   Name descending
                 </button>
-                <button onClick={() => dispatch(sortData('yearAscending'))}>
+                <button
+                  onClick={() => {
+                    setClicked(!clicked);
+                    dispatch(sortData('yearAscending'));
+                  }}
+                >
                   Year ascending
                 </button>
-                <button onClick={() => dispatch(sortData('yearDescending'))}>
+                <button
+                  onClick={() => {
+                    setClicked(!clicked);
+                    dispatch(sortData('yearDescending'));
+                  }}
+                >
                   Year descending
                 </button>
               </div>

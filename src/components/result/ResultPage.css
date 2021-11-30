@@ -32,6 +32,14 @@
   color: #484848;
   margin-right: 24px;
 }
+.resultPageInput:hover {
+  width: 509px;
+  height: 46px;
+  background: rgba(100, 100, 100, 0.08);
+  border: 2px solid rgba(0, 0, 0, 0.6);
+  box-sizing: border-box;
+  border-radius: 8px;
+}
 
 .resultSearchButton {
   width: 138px;
@@ -107,6 +115,7 @@
   font-size: 18px;
   line-height: 21px;
   color: #484848;
+  width: 290px;
 }
 .nameDate {
   font-family: Roboto;
@@ -123,19 +132,19 @@
   font-size: 18px;
   line-height: 21px;
   color: #484848;
-  margin-left: auto;
-  padding-right: 20%;
 }
 .listItem {
   border-bottom: 1px solid #585858;
   padding-bottom: 3px;
   width: 644px;
+  display: flex;
+  height: 50px;
 }
 .liHover {
   padding-bottom: 9px;
   padding-top: 10px;
   padding-left: 11px;
-  margin-bottom: 21px;
+  margin-bottom: 12px;
   width: 661px;
 }
 .liHover:hover {
