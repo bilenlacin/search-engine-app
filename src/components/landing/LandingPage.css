@@ -1,7 +1,7 @@
 .container {
   min-height: 100vh;
   display: flex;
-  margin-top: 150px;
+
   justify-content: center;
 }
 .imageDiv {
@@ -10,8 +10,7 @@
   align-items: center;
 }
 .mainPageLogo {
-  width: 278px;
-  height: 115px;
+  height: 280px;
 }
 .logoText {
   width: 220px;
@@ -43,6 +42,23 @@
   margin-top: 44px;
   margin-right: 16px;
 }
+.searchInput-error {
+  width: 709px;
+  height: 46px;
+  background: #ffffff;
+  border: 1px solid red;
+  box-sizing: border-box;
+  text-align: center;
+  border-radius: 8px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  color: #888888;
+  margin-top: 44px;
+  margin-right: 16px;
+}
 
 .searchInput:hover {
   width: 709px;
@@ -51,6 +67,15 @@
   border: 2px solid rgba(0, 0, 0, 0.6);
   box-sizing: border-box;
   border-radius: 8px;
+}
+.searchInput::placeholder {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+
+  color: rgba(100, 100, 100, 0.5);
 }
 .searchButton {
   width: 138px;
@@ -127,4 +152,13 @@
   position: absolute;
   padding-left: 317px;
   padding-top: 10px;
+}
+.error {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+
+  color: rgba(255, 0, 0, 0.5);
 }

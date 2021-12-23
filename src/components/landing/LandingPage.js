@@ -42,12 +42,14 @@ function LandingPage() {
               className='searchInput'
               onChange={(e) => setSearch(e.target.value)}
               value={searched}
+              placeholder='Enter here..'
             />
             <button className='searchButton' onClick={(e) => searchClicked(e)}>
               Search
             </button>
           </form>
         </div>
+
         <div>
           {items.length !== 0 ? (
             <div className='resultArea'>

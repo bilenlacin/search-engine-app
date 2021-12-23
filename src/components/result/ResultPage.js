@@ -5,7 +5,6 @@ import './ResultPage.css';
 import ResultPageList from './ResultPageList';
 import {
   changeSearch,
-  getDataAsync,
   getResultsAsync,
   sortData,
 } from '../../redux/resultSlice';
@@ -20,10 +19,6 @@ function ResultPage() {
   useEffect(() => {
     dispatch(changeSearch(search));
   }, [dispatch, search]);
-
-  useEffect(() => {
-    dispatch(getDataAsync());
-  }, [dispatch]);
 
   const items = useSelector((state) => state.results.items);
   const searched = useSelector((state) => state.results.search);

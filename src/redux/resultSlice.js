@@ -106,7 +106,6 @@ export const resultSlice = createSlice({
         }
         return false;
       });
-      state.search = '';
     },
     [getDataAsync.fulfilled]: (state, action) => {
       state.items = action.payload.map((item) => {

@@ -5,12 +5,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 27px;
 }
 
 .resultPageLogo {
   width: 149px;
-  height: 63px;
+  height: 150px;
   margin-right: 35px;
 }
 
@@ -41,6 +40,15 @@
   border-radius: 8px;
 }
 
+.resultPageInput::placeholder {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+
+  color: rgba(100, 100, 100, 0.5);
+}
 .resultSearchButton {
   width: 138px;
   height: 46px;
@@ -106,7 +114,6 @@
 }
 .resultPageList {
   width: 83%;
-  margin-top: 80px;
 }
 .countryCity {
   font-family: Roboto;
